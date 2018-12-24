@@ -21,21 +21,18 @@ public class TodoController {
 
 
     @GetMapping({"/todo/{id}", "/todo/{id}/"})
-    public Todo getById(@PathVariable int id) {
+    public Todo getById(@PathVariable String id) {
         return todoServe.getById(id);
     }
 
     @PostMapping(value = {"/todo/", "/todo/"})
     public Todo createTodo(@RequestBody Todo todo) {
-        if (todoServe.save(todo)) {
-            return todo;
-        }
-        return null;
+            return todoServe.save(todo);
     }
 
 
     @DeleteMapping({"/todo/{id}", "/todo/{id}/"})
-    public void deleteTodo(@PathVariable int id) {
+    public void deleteTodo(@PathVariable String id) {
         todoServe.delete(id);
     }
 

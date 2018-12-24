@@ -1,22 +1,34 @@
 package com.meElect.shamel.Todo;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.xml.crypto.Data;
+
+@Document(collection = "todos")
 public class Todo {
-    private int id;
+    @Id
+    private String id;
     private String name;
     private String address;
 
-    public Todo() {}
-    public Todo(int id, String name, String address) {
+
+    private long timestamp;
+
+    public Todo() {
+    }
+
+    public Todo(String id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,5 +48,12 @@ public class Todo {
         this.address = address;
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
 }

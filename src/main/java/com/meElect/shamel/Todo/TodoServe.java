@@ -1,42 +1,37 @@
 package com.meElect.shamel.Todo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class TodoServe {
 
-    private List<Todo> data = new ArrayList<>(Arrays.asList(
-            new Todo(1, "Elteyab Ali", "Khartoom sudan"),
-            new Todo(2, "Omer Khalid", "Khartoom sudan"),
-            new Todo(3, "Prof Mustafa", "Khartoom sudan")
-    ));
+//    private List<Todo> data = new ArrayList<>(Arrays.asList(
+//            new Todo(1, "Elteyab Ali", "Khartoom sudan"),
+//            new Todo(2, "Omer Khalid", "Khartoom sudan"),
+//            new Todo(3, "Prof Mustafa", "Khartoom sudan")
+//    ));
 
 
+    @Autowired
+    private TodoRepository todoRepository;
     public List<Todo> findAll() {
-        return data;
+        return todoRepository.findAll();
     }
 
-    public Todo getById(int id) {
-        for (Todo todo : data) {
-            if (todo.getId() == id) return todo;
-        }
-        return null;
+
+    public Todo getById(String id) {
+     return todoRepository.findById(id).get();
     }
 
-    public boolean save(Todo todo){
-        return  data.add(todo);
+    public Todo save(Todo todo){
+        return todoRepository.insert(todo);
     }
 
-    public void delete(int id){
-        for (Todo todo: data){
-            if (todo.getId()== id){
-                data.remove(todo);
-            }
-        }
+    public void delete(String id){
+       todoRepository.deleteById(id);
     }
 }
 

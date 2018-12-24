@@ -1,3 +1,10 @@
 server:
-  port: 9000
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      database: TodoDB
+      host: localhost
+      port: 27017
 
