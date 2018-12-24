@@ -16,6 +16,7 @@ public class Todo {
     private long timestamp;
 
     public Todo() {
+        this.timestamp = System.currentTimeMillis();
     }
 
     public Todo(String id, String name, String address) {
