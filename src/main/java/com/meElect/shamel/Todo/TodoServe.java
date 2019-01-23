@@ -8,12 +8,6 @@ import java.util.List;
 @Service
 public class TodoServe {
 
-//    private List<Todo> data = new ArrayList<>(Arrays.asList(
-//            new Todo(1, "Elteyab Ali", "Khartoom sudan"),
-//            new Todo(2, "Omer Khalid", "Khartoom sudan"),
-//            new Todo(3, "Prof Mustafa", "Khartoom sudan")
-//    ));
-
 
     @Autowired
     private TodoRepository todoRepository;

@@ -3,13 +3,19 @@ package com.meElect.shamel.Todo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.crypto.Data;
 
 @Document(collection = "todos")
 public class Todo {
     @Id
     private String id;
+    @NotNull
+    @Size(max = 10, min = 3)
     private String name;
+
+    @Size()
     private String address;
 
 
